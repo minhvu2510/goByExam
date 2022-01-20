@@ -35,3 +35,4 @@ func main() {
 // perim: 1
 // perim: 1
 // area:  {10 5}
+// => dung con tro lam thay doi dc 
