@@ -20,3 +20,7 @@ File goroutines.go. Nhập từ khóa go vào trước hàm hoặc phương th�
  Các goroutins chạy độc lập để các goroutine giao tiếp với nhau thì có Channels. Tương tự như cách nước chảy từ đầu này sang đầu kia trong đường ống, dữ liệu gửi từ một đầu và nhận từ đầu kia băng channels.
 
  Mỗi channel có một loại liên kết với nó. Loại này là loại dữ liệu mà channel được phép vận chuyển. Không có loại khác được phép vận chuyển bằng cách sử dụng channel. (chan T là một channel loại T). File chanel.go
+
+ ### Worker Pool 
+
+ Mục đích là để ta có thể quản lý các worker, quản lý việc phân phối task và đặc biệt là kiểm soát được những tài nguyên dùng chung giữa các worker. Ví dụ như các worker chạy đồng thời và cùng truy xuất vào 1 file hoặc dùng chung một API.
