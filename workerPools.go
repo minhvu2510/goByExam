@@ -20,14 +20,14 @@ func main() {
 	jobs := make(chan int, numJobs)
 	results := make(chan int, numJobs)
 
-	for w := 1; w <= 3; w++ {
+	for w := 1; w <= 8; w++ {
 		go worker(w, jobs, results)
 	}
 
 	for j := 1; j <= numJobs; j++ {
 		jobs <- j
 	}
-	close(jobs)
+	// close(jobs)
 
 	for a := 1; a <= numJobs; a++ {
 		<-results

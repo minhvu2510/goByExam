@@ -21,6 +21,20 @@ File goroutines.go. Nhập từ khóa go vào trước hàm hoặc phương th�
 
  Mỗi channel có một loại liên kết với nó. Loại này là loại dữ liệu mà channel được phép vận chuyển. Không có loại khác được phép vận chuyển bằng cách sử dụng channel. (chan T là một channel loại T). File chanel.go
 
+### Race condition
+Hiện tượng nhiều tiến trình cùng truy cập và muốn thay đổi giá trị của biens, nhưng không theo quy tắc nào khiến kết quả không như mong muốn. Để xử lý vấn đề nyaf cần dùng đến atomic, mutext, channel
+
+### Waitgroup 
+Công cụ quản lý luồng chạy của goroutines: go rt chính chờ go rt con có tín hiệu x/lý xong mới chạy tiếp
+
+### Atomic 
+Package của go đảm bỏa cho tại một thời điểm chỉ có 1 tiến trình duy nhất đọc ghi một biến (chỉ hỗ trợ các kiển số int32, int64, unit32,...)
+
+### Mutex 
+Giống atomic nhưng khác ở chỗ atomic chỉ lock 1 biến của mutex lock cả 1 đoạn code
+
  ### Worker Pool 
 
  Mục đích là để ta có thể quản lý các worker, quản lý việc phân phối task và đặc biệt là kiểm soát được những tài nguyên dùng chung giữa các worker. Ví dụ như các worker chạy đồng thời và cùng truy xuất vào 1 file hoặc dùng chung một API.
+worker pool : tập hợp các goroutines chò task để xử lý
+Tại sao dùng worker pool : quản lý được goroutines dễ dàng, tiết kiệm thời gian cấp phát go rt, kiểm soát size không bị exhausted resource
